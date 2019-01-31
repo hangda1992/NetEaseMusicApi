@@ -8,10 +8,14 @@ from base64 import b64encode
 from Crypto.Cipher import AES
 
 """
-Crypto模块的安装
+Windows下Crypto模块的安装
 1. pip install crypto
 2. pip install pycrypto
-3. 将windows下crypto包对应的文件夹改成Crypto
+3. 将crypto包对应的文件夹改成Crypto
+
+Linux下Crypto模块的安装
+1.pip install pycrypto
+2.pip install pycryptodome
 """
 
 # 加密需要的固定数据
@@ -221,6 +225,7 @@ class NetEaseCloudMusic(object):
         获取歌曲mp3 url地址
         :return:
         """
+        mp3_url = None
         try:
             play_j = {
                 "br": 128000,
@@ -228,8 +233,10 @@ class NetEaseCloudMusic(object):
                 "ids": "[{song_id}]".format(song_id=song_id)
             }
             play_dic = self.song_public_1(url=url['mp3_url'], data=play_j)
+            if "data" in play_dic:
+                mp3_url = play_dic['data'][0]['url']
 
         except Exception as error:
             print("fun:search={}".format(error))
 
-        return play_dic
+        return mp3_url

@@ -11,7 +11,7 @@ def _get_log():
     try:
         logger = logging.getLogger()
         hdlr = TimedRotatingFileHandler(
-            os.path.join('/var/log/vcfs', 'androidC.log'),
+            os.path.join('./log/', 'Music.log'),
             when='D',
             interval=1,
             backupCount=7,
