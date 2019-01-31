@@ -1,0 +1,15 @@
+certifi==2018.1.18
+chardet==3.0.4
+cupshelpers==1.0
+idna==2.6
+pexpect==4.2.1
+Pillow==5.1.0
+pycairo==1.16.2
+pycups==1.9.73
+pygobject==3.28.2
+pysmbc==1.0.15.6
+reportlab==3.4.0
+requests==2.18.4
+six==1.11.0
+urllib3==1.22
+virtualenv==16.2.0
