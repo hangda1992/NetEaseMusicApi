@@ -39,4 +39,3 @@ class SearchMusic(View):
             logger.error("SearchMusic:{error}".format(error=error))
 
         return JsonResponse(result)
-
