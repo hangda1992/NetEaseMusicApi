@@ -221,6 +221,7 @@ class NetEaseCloudMusic(object):
         获取歌曲mp3 url地址
         :return:
         """
+        play_dic = {}
         try:
             play_j = {
                 "br": 128000,
@@ -228,6 +229,10 @@ class NetEaseCloudMusic(object):
                 "ids": "[{song_id}]".format(song_id=song_id)
             }
             play_dic = self.song_public_1(url=url['mp3_url'], data=play_j)
+            if play_dic['code'] == 200:
+                play_dic = play_dic['data'][0]
+            else:
+                play_dic = None
 
         except Exception as error:
             print("fun:search={}".format(error))
